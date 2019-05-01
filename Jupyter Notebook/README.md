@@ -60,14 +60,7 @@ Base.prepare(engine, reflect=True)
 # We can view all of the classes that automap found
 Base.classes.keys()
 ```
-
-
-
-
     ['measurement', 'station']
-
-
-
 
 ```python
 # Save references to each table
@@ -88,17 +81,12 @@ for c in columns:
    print(c['name'], c["type"])
 columns
 ```
-
     id INTEGER
     station TEXT
     date TEXT
     prcp FLOAT
     tobs FLOAT
-
-
-
-
-
+    
     [{'name': 'id',
       'type': INTEGER(),
       'nullable': False,
@@ -169,10 +157,6 @@ plt.show()
 
 ![png](output_12_0.png)
 
-
-![precipitation](Images/precipitation.png)
-
-
 ```python
 # Use Pandas to calcualte the summary statistics for the precipitation data
 
@@ -183,19 +167,6 @@ prcp_df.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -250,10 +221,6 @@ prcp_df.describe()
 </div>
 
 
-
-![describe](Images/describe.png)
-
-
 ```python
 # Design a query to show how many stations are available in this dataset?
 stationquery = session.query(Station.station, Station.station).count()
@@ -279,19 +246,6 @@ activestations_df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -393,13 +347,7 @@ highHIGHtemp
 
 ```
 
-
-
-
     ('USC00519397', 87.0)
-
-
-
 
 ```python
 # Query the last 12 months of temperature observation data for this station and plot the results as a histogram
@@ -410,9 +358,6 @@ year_tempobv_temp = list(year_tempobv_dict.values())
 year_tempobv
 
 ```
-
-
-
 
     [('2016-08-24', 79.0),
      ('2016-08-25', 80.0),
@@ -1416,9 +1361,6 @@ year_tempobv
      ('2016-12-22', 68.0),
      ...]
 
-
-
-
 ```python
 plt.hist(year_tempobv_temp)
 plt.title("Frequency of Temperature \n for Station USC00519397")
@@ -1431,8 +1373,6 @@ plt.savefig('Images/Frequency of Temperature for Station USC00519397.jpg')
 
 ![png](output_23_0.png)
 
-
-![precipitation](Images/station-histogram.png)
 
 
 ```python
@@ -1514,19 +1454,6 @@ railfalljoin_df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1624,14 +1551,7 @@ def daily_normals(date):
     
 daily_normals("04-13")
 ```
-
-
-
-
     [('2017-04-13', 64.0, 71.52542372881356, 79.0)]
-
-
-
 
 ```python
 # calculate the daily normals for your trip
@@ -1713,19 +1633,6 @@ tripdailys_df
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
